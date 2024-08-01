@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Product Details</title>
+</head>
+<body>
+  <%- include ('partials/navbar.ejs') %>
+
+  <div class="box">
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="/images/<%= profile.img %>" class="img-fluid" alt="<%= profile.recipe_name %>">
+        </div>
+        <div class="col-md-6">
+          <h2><%= profile.recipe_name %></h2>
+          <p><strong>Recipe Ingredients:</strong><br>
+            <%= profile.ingredient %></p>
+          <p><strong>Recipe Guide:</strong><br>
+            <%= profile.guide %></p>
+          <p><strong>Estimated Recipe's Duration:</strong>
+            <%= profile.duration %> mins</p>
+          <a href="/post" class="btn btn-secondary mt-3">Back to Community Page</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Community Recipes</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/create">Create Recipe</a></li>
+        <li><a href="/post">Community Recipes</a></li>
+        <li><a href="/login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Community Recipes</h1>
+    <div class="recipe-list">
+      <% recipe.forEach(function(recipe) { %>
+        <div class="recipe-item">
+          <h2><%= recipe.recipe_name %></h2>
+          <% if (recipe.img) { %>
+            <img src="/images/<%= recipe.img %>" alt="<%= recipe.recipe_name %>">
+          <% } %>
+          <p><%= recipe.ingredient %></p>
+          <p><%= recipe.guide %></p>
+          <p>Duration: <%= recipe.duration %> minutes</p>
+          <a href="/details/<%= recipe.user_id %>">Details</a>
+          <a href="/edit/<%= recipe.user_id %>">Edit</a>
+          <form action="/delete/<%= recipe.user_id %>" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 Foodiser. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+

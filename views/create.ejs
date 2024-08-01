@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Create Profile</title>
+</head>
+<body>
+  <%- include ('partials/navbar.ejs') %>
+  <div class="container mt-3">
+    <h2>Add Your Profile</h2>
+
+    <form action="/create" method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="recipename">Recipe's Name:</label>
+        <input type="text" class="form-control" id="recipename" name="recipename" placeholder="Enter recipe name">
+      </div>
+
+      <label for="img">Insert Dish Image:</label><br>
+      <input type="file" id="img" name="img" accept="image/*">
+
+      <div class="mb-3 mt-3">
+        <p><b>Ingredients:</b></p>
+        <textarea class="ing" cols="170" rows="7" placeholder="Enter Ingredients" id="ing" name="ing"></textarea>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <p><b>Recipe Guide:</b></p>
+        <textarea class="guide" cols="170" rows="7" placeholder="Enter Recipe Guide" id="guide" name="guide"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="dura">Cooking Duration:</label>
+        <input type="number" class="form-control" id="dura" name="dura" placeholder="Enter estimated cooking duration (in mins)" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Recipe</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+  <h1>Create a New Recipe</h1>
+  <form action="/create" method="post" enctype="multipart/form-data">
+    <label for="recipename">Recipe Name:</label>
+    <input type="text" id="recipename" name="recipename" required>
+    
+    <label for="img">Image:</label>
+    <input type="file" id="img" name="img">
+    
+    <label for="ingredients">Ingredients:</label>
+    <textarea id="ingredients" name="ingredients" required></textarea>
+    
+    <label for="instructions">Instructions:</label>
+    <textarea id="instructions" name="instructions" required></textarea>
+    
+    <label for="cooking_duration">Cooking Duration (minutes):</label>
+    <input type="number" id="cooking_duration" name="cooking_duration" required>
+    
+    <label for="level_of_difficulty">Level of Difficulty:</label>
+    <input type="text" id="level_of_difficulty" name="level_of_difficulty" required>
+    
+    <label for="user_id">User ID:</label>
+    <input type="text" id="user_id" name="user_id" required>
+    
+    <button type="submit">Create Recipe</button>
+  </form>
+</body>
+</html>
